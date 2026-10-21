@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arpita | AI/ML Engineer & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7FB;--surface:#FFFFFF;--ink:#172033;--muted:#566079;--line:#D9DEE9;
+  --accent:#2F5BEA;--tint:#E6ECFF;--on-accent:#FFFFFF;
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1424;--surface:#161E33;--ink:#E8ECF7;--muted:#9AA5C0;--line:#2A3452;--accent:#7C9BFF;--tint:#1F2B52;--on-accent:#0E1424}}
+:root[data-theme="dark"]{--bg:#0E1424;--surface:#161E33;--ink:#E8ECF7;--muted:#9AA5C0;--line:#2A3452;--accent:#7C9BFF;--tint:#1F2B52;--on-accent:#0E1424}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.logo{font:800 1.15rem var(--head);text-decoration:none}
+.nav nav{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
+.nav nav a{font-size:.9rem;color:var(--muted);text-decoration:none;white-space:nowrap}
+.nav nav a:hover{color:var(--ink)}
+section{padding:72px 0 8px}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;margin-bottom:28px}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+/* hero */
+.hero{padding-top:56px}
+.hero h1{font-size:clamp(3rem,10vw,6.2rem);font-weight:800;letter-spacing:-.03em}
+.role{font:500 clamp(1.1rem,2.4vw,1.4rem)/1.4 var(--head);margin:14px 0 0;max-width:34ch}
+.intro{max-width:56ch;margin-top:16px;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;border:1.5px solid var(--ink);font-weight:600;text-decoration:none;background:transparent}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{transform:translateY(-1px)}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.flow{margin-top:44px;display:grid;grid-template-columns:1fr auto 1.4fr auto 1fr;align-items:stretch;gap:10px}
+.node{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;font-size:.88rem}
+.node b{display:block;font:700 .95rem var(--head);margin-bottom:4px}
+.arrow{align-self:center;color:var(--muted);font-size:1.2rem}
+.chunks{display:grid;gap:6px;margin-top:8px}
+.chunk{height:10px;border-radius:5px;background:var(--line)}
+.chunk.hit{background:var(--accent)}
+.node{animation:lit 3.6s ease-in-out 1 both}
+.node:nth-child(3){animation-delay:.9s}.node:nth-child(5){animation-delay:1.8s}
+@keyframes lit{0%,100%{border-color:var(--line)}30%,60%{border-color:var(--accent);box-shadow:0 0 0 4px var(--tint)}}
+@media (max-width:720px){.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center}}
+/* content */
+.about{max-width:68ch;font-size:1.05rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.skills h3{font-size:1rem;margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{background:var(--tint);padding:3px 10px;border-radius:999px;font-size:.85rem}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column}
+.proj.feature{grid-column:1/-1;border-color:var(--accent);border-width:2px}
+.proj .meta{font-size:.85rem;color:var(--muted);margin:4px 0 12px}
+.proj .tags{margin-top:auto;padding-top:12px}
+.proj .links{display:flex;gap:14px;margin-top:14px;font-weight:600;font-size:.92rem}
+.proj .links a{color:var(--accent)}
+.proj .links a[aria-disabled="true"]{color:var(--muted);pointer-events:none;text-decoration:none;opacity:.7}
+.tl{border-left:2px solid var(--line);padding-left:22px;display:grid;gap:26px}
+.tl article{position:relative}
+.tl article::before{content:"";position:absolute;left:-29px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl ul{margin:8px 0 0;padding-left:18px}
+.when{font-size:.88rem;color:var(--muted)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+.contact .rows{display:grid;gap:10px;margin-top:14px}
+.contact a{color:var(--accent);font-weight:600}
+footer{padding:48px 0 40px;color:var(--muted);font-size:.88rem}
+.theme{background:none;border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.node{animation:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Arpita</a>
+  <nav aria-label="Sections">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">Theme</button>
+</div></header>
+
+<main id="top" class="wrap">
+<section class="hero">
+  <h1>Arpita</h1>
+  <p class="role">AI/ML engineer in training, building retrieval systems, NLP models and the web apps around them.</p>
+  <p class="intro">Final-year B.Tech student (CSE, AI/ML) at Amity University, Lucknow. I take projects from data preprocessing through implementation, evaluation and documentation.</p>
+  <div class="btns">
+    <a class="btn" data-link="github" href="#">GitHub</a>
+    <a class="btn" href="#contact">Contact</a>
+  </div>
+  <div class="flow" aria-label="Retrieval-augmented generation pipeline, the focus of my research">
+    <div class="node"><b>Question</b>A user asks about a document set.</div>
+    <div class="arrow" aria-hidden="true">&rarr;</div>
+    <div class="node"><b>Retrieve</b>BM25 + FAISS semantic search<div class="chunks" aria-hidden="true"><div class="chunk hit"></div><div class="chunk"></div><div class="chunk hit"></div><div class="chunk"></div></div></div>
+    <div class="arrow" aria-hidden="true">&rarr;</div>
+    <div class="node"><b>Generate</b>An LLM answers from the retrieved passages.</div>
+  </div>
+</section>
+
+
+<section id="about">
+  <h2>About me</h2>
+
+  <div class="about">
+    <p>
+      I'm a final-year Computer Science and Engineering student
+      specializing in Artificial Intelligence and Machine Learning
+      at Amity University, Lucknow. I'm interested in applying
+      technology and data-driven approaches to solve real-world
+      problems, improve decision-making, and create meaningful
+      solutions.
+    </p>
+
+    <p>
+      My work includes developing a hybrid Retrieval-Augmented
+      Generation (RAG) system, building BugSense AI for software
+      defect analysis, and creating applications using Python,
+      React, Next.js, and machine learning technologies.
+      Through these projects, I've gained experience in data
+      analysis, problem-solving, model development, and
+      translating technical ideas into practical applications.
+    </p>
+
+    <p>
+      Beyond software development and AI, I'm interested in
+      business analytics, technology consulting, and advisory
+      roles where I can combine analytical thinking, technical
+      knowledge, and business understanding to support strategic
+      decisions and deliver measurable value.
+    </p>
+  </div>
+</section>
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills" id="skillGrid"></div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects" id="projGrid"></div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="tl">
+    <article>
+      <h3>AI Game Development Intern, Infineo</h3>
+      <div class="when">Remote, 2026 (1 month)</div>
+      <ul><li>Built browser-based educational games with HTML and AI-assisted development tools.</li><li>Turned learning concepts into interactive experiences, including game logic, prompt workflows and UI.</li></ul>
+    </article>
+    <article>
+      <h3>Advisors &amp; Consulting Services Job Simulation, Mastercard (Forage)</h3>
+      <div class="when">February 2026</div>
+      <ul><li>Analyzed customer transaction data to find trends and business opportunities.</li><li>Recommended ways to improve merchant engagement and revenue, and presented the findings.</li></ul>
+    </article>
+  </div>
+</section>
+
+<section id="research">
+  <h2>Research</h2>
+  <div class="two">
+    <div>
+      <h3>Retrieval-Augmented Generation for Context-Aware, Knowledge-Intensive AI Systems</h3>
+      <p class="muted" style="margin-top:10px">Thesis work on how retrieval quality shapes the answers an LLM gives. It covers RAG architecture, semantic and vector search, hybrid retrieval, generation and evaluation, with a research-paper draft and weekly progress reports.</p>
+      <p><a data-link="paper" href="#" style="color:var(--accent);font-weight:600">Read the paper</a></p>
+    </div>
+    <div>
+      <h3>Certifications</h3>
+      <ul class="muted" style="padding-left:18px;margin-top:10px">
+        <li>Introduction to Large Language Models, Google Cloud (2026)</li>
+        <li>Introduction to Generative AI, Google Cloud (2026)</li>
+        <li>Google Cybersecurity Specialization, Coursera (2025)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="tl">
+    <article>
+      <h3>B.Tech, Computer Science &amp; Engineering (AI/ML), Amity University, Lucknow</h3>
+      <div class="when">2023 to 2027</div>
+      <p class="muted" style="margin-top:8px">Coursework: Data Structures &amp; Algorithms, Machine Learning, Automata Theory, DBMS, Operating Systems.</p>
+    </article>
+    <article>
+      <h3>Class XII, Trident Public School, Muzaffarpur</h3>
+      <div class="when">2022 to 2023, 73%</div>
+    </article>
+    <article>
+      <h3>Class X, DAV Public School, Muzaffarpur</h3>
+      <div class="when">2020 to 2021, 92%</div>
+    </article>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <p>Open to internships and full-time roles in AI/ML, data and software engineering. The fastest way to reach me is email.</p>
+    <div class="rows">
+      <div>Email: <a data-link="email" href="#">add your email</a></div>
+      <div>LinkedIn: <a data-link="linkedin" href="#">add your LinkedIn</a></div>
+      <div>GitHub: <a data-link="github" href="#">add your GitHub</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">Built by Arpita. Hindi (native), English (fluent), Spanish (basic).</div></footer>
+
+<script>
+/* EDIT THIS BLOCK: replace every empty string with your real link. Empty links show as disabled. */
+var LINKS = {
+  email: "mailto:arpita9601@gmail.com",
+  linkedin: "https://www.linkedin.com/in/arpita-singh29/",
+  github: "https://github.com/arpitacodes29",
+  paper: "RAG-paper.pdf"       // RAG research paper PDF
+};
+var SKILLS = [
+  ["Languages", ["Python","C++","C","SQL","JavaScript","Java (basic)"]],
+  ["Web", ["React.js","Next.js","HTML5","CSS3","REST APIs","Responsive design"]],
+  ["AI / ML", ["PyTorch","TensorFlow","Scikit-learn","NumPy","Pandas","NLP","TF-IDF"]],
+  ["Generative AI", ["LLMs","RAG","Prompt engineering","Hybrid retrieval","FAISS"]],
+  ["Data & analytics", ["SQL","MySQL","Matplotlib","Seaborn","Feature engineering","Model evaluation"]],
+  ["Tools & other", ["Git","GitHub","Node.js","Electron.js","GCP basics","Linux","Jupyter"]]
+];
+var PROJECTS = [
+   {
+  t: "BugSense AI",
+  y: "2026",
+  f: 1,
+  d: "An intelligent software defect analysis platform that classifies bug report severity using TF-IDF and an optimized LinearSVC model. Includes rule-based Python/JavaScript source code analysis, error log analysis, and an interactive Flask-powered dashboard. Achieved 77.50% accuracy on a near-duplicate-filtered test set.",
+  s: [
+    "Python", "Flask", "Scikit-learn",
+    "TF-IDF", "SVM", "JavaScript", "HTML", "CSS"
+  ],
+  l: {
+    code: "https://github.com/arpitacodes29/BugSense-AI",
+    paper: "papers/BugSense-paper.pdf"
+  }
+   },
+  {t:"Retrieval-Augmented Generation (RAG) pipeline",y:"2026",f:1,
+   d:"A modular pipeline covering preprocessing, embedding and vector retrieval, hybrid retrieval, generation and evaluation. It combines BM25 with FAISS semantic search, and has an interactive demo with PDF upload, live LLM calls and a view of each retrieval-to-generation step.",
+   s:["Python","FAISS","BM25","LLM APIs","PDF.js"],l:{paper: "papers/RAG-paper.pdf"}},
+  {t:"Bookshelf web app",y:"2026",
+   d:"A responsive, component-based app with book search, category filters and dynamic rendering, fed by REST APIs.",
+   s:["React.js","Next.js","REST APIs","CSS"],l:{demo:"https://digital-bookshelf-mq1j.vercel.app/", code:"https://github.com/arpitacodes29/Digital-Bookshelf"}},
+  {t:"Netflix recommendation system",y:"2025",
+   d:"Content-based and collaborative filtering that returns top-N movie picks, evaluated with RMSE and precision metrics.",
+   s:["Python","Pandas","Scikit-learn","Cosine similarity"],l:{code:"https://github.com/arpitacodes29/netflix-behavior-recommender"}},
+  {t:"Fake news detection",y:"2026",
+   d:"A text classification pipeline using TF-IDF. I compared Logistic Regression, Naive Bayes and Random Forest, with hyperparameter tuning.",
+   s:["Python","Scikit-learn","NLP"],l:{code:"https://github.com/arpitacodes29/Fake-News-Detection-DNN"}},
+  {t:"Brain-computer interface (BCI)",y:"2025",
+   d:"EEG signal classification with supervised learning, reaching about 85% accuracy after tuning and validation.",
+   s:["Python","Scikit-learn"],l:{paper: "papers/BCI-paper.pdf"}},
+  {t:"Interactive desktop pet",y:"2025",
+   d:"A cross-platform companion app: a draggable, transparent, always-on-top window with sprite animation built in CSS.",
+   s:["Electron.js","Node.js","HTML","CSS"],l:{demo:"https://digital-bookshelf-i55l.vercel.app/",code:"https://github.com/arpitacodes29/Interactive-Desktop-Pet"}}
+];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function setLink(a,url){
+  if(url){a.href=url;if(!url.indexOf("http")){a.target="_blank";a.rel="noopener"}
+    if(a.hasAttribute("data-download"))a.setAttribute("download","")}
+  else{a.setAttribute("aria-disabled","true");a.removeAttribute("href");a.title="Link not added yet"}
+}
+document.getElementById("skillGrid").innerHTML =
+  SKILLS.map(function(g) {
+    return '<div><h3>' + esc(g[0]) + '</h3>' +
+      '<div class="tags">' +
+      g[1].map(function(x) {
+        return '<span>' + esc(x) + '</span>';
+      }).join("") +
+      '</div></div>';
+  }).join("");
+
+document.getElementById("projGrid").innerHTML =
+  PROJECTS.map(function(p, i) {
+
+    var links = Object.keys(p.l).map(function(k) {
+      var label =
+        k === "demo" ? "Live demo" :
+        k === "paper" ? "Research paper" :
+        "Source code";
+
+      return '<a data-pi="' + i +
+             '" data-pk="' + k +
+             '" href="#">' + label + '</a>';
+    }).join("");
+
+    return '<article class="proj' +
+      (p.f ? ' feature' : '') + '">' +
+      '<h3>' + esc(p.t) + '</h3>' +
+      '<div class="meta">' + esc(p.y) + '</div>' +
+      '<p>' + esc(p.d) + '</p>' +
+      '<div class="tags">' +
+      p.s.map(function(x) {
+        return '<span>' + esc(x) + '</span>';
+      }).join("") +
+      '</div>' +
+      '<div class="links">' + links + '</div>' +
+      '</article>';
+
+  }).join("");
+
+document.querySelectorAll("[data-pi]").forEach(function(a) {
+  setLink(a, PROJECTS[a.dataset.pi].l[a.dataset.pk]);
+});
+
+document.querySelectorAll("[data-link]").forEach(function(a){
+  var k=a.dataset.link,u=LINKS[k];
+  if(u&&k!=="email"&&a.tagName==="A"&&a.textContent.indexOf("add your")===0)a.textContent=u.replace(/^https?:\/\/(www\.)?/,"");
+  if(u&&k==="email"&&a.textContent.indexOf("add your")===0)a.textContent=u.replace("mailto:","");
+  setLink(a,u)});
+var root=document.documentElement,btn=document.getElementById("theme");
+try{var saved=localStorage.getItem("theme");if(saved)root.setAttribute("data-theme",saved)}catch(e){}
+btn.addEventListener("click",function(){
+  var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);
+  var next=dark?"light":"dark";root.setAttribute("data-theme",next);
+  try{localStorage.setItem("theme",next)}catch(e){}
+});
+</script>
+</body>
+</html>
